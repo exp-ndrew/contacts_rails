@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  Wikipages::Application.routes.draw do
+    match('/', {:via => :get, :to => 'contacts#index'})
+    match('contacts/:id', {:via => :get, :to => 'contacts#show'})
+    match('contacts', {:via => :get, :to => 'contacts#index'})
+    match('contacts', {:via => :post, :to => 'contacts#create'})
+    match('contacts/new', {:via => :get, :to => 'contacts#new'})
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
